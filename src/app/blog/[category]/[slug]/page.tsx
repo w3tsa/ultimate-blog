@@ -1,5 +1,11 @@
 import { notFound } from "next/navigation";
-import { formatDate, getBlogPosts } from "../../utils";
+import {
+  formatDate,
+  getBlogPosts,
+  getViewCounts,
+  updatePageViews,
+  viewCount,
+} from "../../utils";
 import { CustomMDX } from "@/components/mdx";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
@@ -17,9 +23,13 @@ export default function Blog({
   params: { slug: string; category: string };
 }) {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
+
   if (!post) {
     notFound();
   }
+
+  updatePageViews(params.slug, post.metadata.title, post.metadata.category);
+
   return (
     <section className="mt-10">
       <MaxWidthWrapper>

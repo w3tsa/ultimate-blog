@@ -1,6 +1,51 @@
 import fs from "fs";
 import path from "path";
 
+// DB
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+export async function updatePageViews(
+  postSlug: string,
+  title: string,
+  category: string
+) {
+  try {
+    const existingPost = await prisma.post.findUnique({
+      where: { slug: postSlug },
+    });
+    if (existingPost) {
+      await prisma.post.update({
+        where: { slug: postSlug },
+        data: {
+          view_count: { increment: 1 },
+        },
+      });
+    } else {
+      await prisma.post.create({
+        data: {
+          slug: postSlug,
+          title: title,
+          category: category,
+        },
+      });
+    }
+  } catch (error) {
+    console.error("Error updating page view:", error);
+  }
+}
+
+// Get popular posts
+
+export async function getPopularPosts() {
+  return await prisma.post.findMany({
+    take: 10,
+    orderBy: [{ view_count: "desc" }],
+  });
+}
+
+// import Test from "../blog/contents/";
 type Metadata = {
   title: string;
   publishedAt: string;

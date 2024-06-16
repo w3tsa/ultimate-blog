@@ -1,17 +1,19 @@
+import { getPopularPosts } from "@/app/blog/utils";
 import { Icons } from "@/components/icons";
-import { popularPosts } from "@/lib/placeholder-data";
+import Link from "next/link";
+// import { popularPosts } from "@/lib/placeholder-data";
 
-export default function PopularPosts() {
+export default async function PopularPosts() {
+  const popularPosts = await getPopularPosts();
   return (
     <ul className="overflow-auto">
       {popularPosts.map((post) => (
-        <li
-          key={post.title}
-          className="leading-10 flex items-center gap-2 group cursor-pointer"
-        >
-          <Icons.arrowRight className="h-6 w-6 group-hover:translate-x-1 transition-all" />
-          {post.title}
-        </li>
+        <Link href={`/blog/${post.category}/${post.slug}`} key={post.title}>
+          <li className="leading-10 flex items-center gap-2 group cursor-pointer">
+            <Icons.arrowRight className="h-6 w-6 group-hover:translate-x-1 transition-all" />
+            {post.title}
+          </li>
+        </Link>
       ))}
     </ul>
   );
