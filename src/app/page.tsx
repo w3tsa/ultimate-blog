@@ -1,7 +1,4 @@
 import LatestPosts from "@/components/home/latest-posts";
-import { MainNav } from "@/components/main-nav";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
 import PopularPosts from "@/components/home/popular-posts";
 import TopCategories from "@/components/home/top-categories";
 

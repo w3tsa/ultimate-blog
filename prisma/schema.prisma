@@ -19,3 +19,9 @@ model Post {
   view_count  Int       @default(1)
   updatedAt   DateTime @default(now())
 }
+
+model Subscribers {
+  id  Int @id @default(autoincrement())
+  email   String @unique
+  is_subscribed Boolean @default(true)
+}

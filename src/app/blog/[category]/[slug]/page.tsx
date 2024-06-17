@@ -1,13 +1,8 @@
-import { notFound } from "next/navigation";
-import {
-  formatDate,
-  getBlogPosts,
-  getViewCounts,
-  updatePageViews,
-  viewCount,
-} from "../../utils";
-import { CustomMDX } from "@/components/mdx";
+import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrum";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import { CustomMDX } from "@/components/mdx";
+import { notFound } from "next/navigation";
+import { formatDate, getBlogPosts, updatePageViews } from "../../utils";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -32,6 +27,12 @@ export default function Blog({
 
   return (
     <section className="mt-10">
+      <div className="my-10">
+        <BreadcrumbWithCustomSeparator
+          category={params.category}
+          title={post.metadata.title}
+        />
+      </div>
       <MaxWidthWrapper>
         <h1 className="title font-semibold text-2xl tracking-tighter">
           {post.metadata.title}

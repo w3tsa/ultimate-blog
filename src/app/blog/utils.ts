@@ -1,10 +1,6 @@
 import fs from "fs";
 import path from "path";
-
-// DB
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { db } from "@/db";
 
 export async function updatePageViews(
   postSlug: string,
@@ -12,18 +8,18 @@ export async function updatePageViews(
   category: string
 ) {
   try {
-    const existingPost = await prisma.post.findUnique({
+    const existingPost = await db.post.findUnique({
       where: { slug: postSlug },
     });
     if (existingPost) {
-      await prisma.post.update({
+      await db.post.update({
         where: { slug: postSlug },
         data: {
           view_count: { increment: 1 },
         },
       });
     } else {
-      await prisma.post.create({
+      await db.post.create({
         data: {
           slug: postSlug,
           title: title,
@@ -39,7 +35,7 @@ export async function updatePageViews(
 // Get popular posts
 
 export async function getPopularPosts() {
-  return await prisma.post.findMany({
+  return await db.post.findMany({
     take: 10,
     orderBy: [{ view_count: "desc" }],
   });

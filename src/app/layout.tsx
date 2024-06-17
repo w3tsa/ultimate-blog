@@ -27,7 +27,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <MaxWidthWrapper>
+          <MaxWidthWrapper className="flex-1">
             <MainNav />
             {children}
           </MaxWidthWrapper>
