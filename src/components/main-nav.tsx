@@ -106,7 +106,9 @@ export function MainNav() {
         {/* <Icons.sun className="h-6 w-6" /> */}
         <ModeToggle />
         <Icons.sound className="h-6 w-6" />
-        <Icons.rss className="h-6 w-6" />
+        <Link href={"/rss"}>
+          <Icons.rss className="h-6 w-6" />
+        </Link>
       </div>
     </div>
   );
