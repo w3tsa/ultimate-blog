@@ -89,7 +89,8 @@ Create an `app/` folder, then add a `layout.tsx` and `page.tsx` file. These will
 
 Create a [root layout](/docs/app/building-your-application/routing/layouts-and-templates#root-layout-required) inside `app/layout.tsx` with the required `<html>` and `<body>` tags:
 
-```tsx filename="app/layout.tsx" switcher
+```tsx
+// app/layout.tsx
 export default function RootLayout({
   children,
 }: {
@@ -103,7 +104,8 @@ export default function RootLayout({
 }
 ```
 
-```jsx filename="app/layout.js" switcher
+```jsx
+// app/layout.js
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -115,13 +117,15 @@ export default function RootLayout({ children }) {
 
 Finally, create a home page `app/page.tsx` with some initial content:
 
-```tsx filename="app/page.tsx" switcher
+```tsx
+// app/page.tsx
 export default function Page() {
   return <h1>Hello, Next.js!</h1>;
 }
 ```
 
-```jsx filename="app/page.js" switcher
+```jsx
+// app/page.js
 export default function Page() {
   return <h1>Hello, Next.js!</h1>;
 }

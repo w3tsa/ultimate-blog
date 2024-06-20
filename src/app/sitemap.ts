@@ -1,4 +1,3 @@
-import { Item } from "@radix-ui/react-navigation-menu";
 import { getBlogPosts } from "./blog/utils";
 
 export const baseUrl = "https://coding-jitsu-blog.vercel.app";

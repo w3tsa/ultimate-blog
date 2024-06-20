@@ -1,10 +1,8 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
+import * as React from "react";
 
-import { cn } from "@/lib/utils";
-import { Icons } from "./icons";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,6 +12,8 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
+import { Icons } from "./icons";
 import { ModeToggle } from "./ui/mode-toggle";
 
 const posts: { title: string; href: string; description: string }[] = [
@@ -52,9 +52,14 @@ const posts: { title: string; href: string; description: string }[] = [
   },
 ];
 
-export function MainNav() {
+export function MainNav({ className }: { className?: string }) {
   return (
-    <div className="flex items-center justify-between mt-10 z-50">
+    <div
+      className={cn(
+        "flex flex-col items-start justify-start md:flex-row md:items-center md:justify-between pt-10 z-50",
+        className
+      )}
+    >
       <Link href={"/"}>
         <div className="flex items-center justify-between w-32">
           <Icons.logo className="h-6 w-6" />
@@ -63,13 +68,6 @@ export function MainNav() {
       </Link>
       <NavigationMenu>
         <NavigationMenuList>
-          <NavigationMenuItem>
-            <Link href="/docs" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Latest
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Posts</NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -86,13 +84,7 @@ export function MainNav() {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/snippets" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Snippets
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
+
           <NavigationMenuItem>
             <Link href="/about" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>

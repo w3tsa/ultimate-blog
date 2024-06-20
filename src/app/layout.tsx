@@ -27,10 +27,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <MaxWidthWrapper className="flex-1">
-            <MainNav />
+          <main className="flex-1">
+            {/* <MainNav /> */}
             {children}
-          </MaxWidthWrapper>
+          </main>
           <Footer />
         </ThemeProvider>
       </body>
