@@ -11,10 +11,10 @@ import {
 
 export function BreadcrumbWithCustomSeparator({
   category,
-  title,
+  slug,
 }: {
   category: string;
-  title: string;
+  slug: string;
 }) {
   return (
     <Breadcrumb>
@@ -34,7 +34,7 @@ export function BreadcrumbWithCustomSeparator({
           <Slash />
         </BreadcrumbSeparator>
         <BreadcrumbItem>
-          <BreadcrumbPage>{title}</BreadcrumbPage>
+          <BreadcrumbPage>{slug}</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
