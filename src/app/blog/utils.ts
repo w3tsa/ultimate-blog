@@ -95,6 +95,13 @@ export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), "src", "app", "blog", "contents"));
 }
 
+export function getTermsOfUse() {
+  return getMDXData(path.join(process.cwd(), "src", "app", "terms-of-use"));
+}
+export function getPrivacyPolicy() {
+  return getMDXData(path.join(process.cwd(), "src", "app", "privacy-policy"));
+}
+
 export function formatDate(date: string, includeRelative = false) {
   let currentDate = new Date();
   if (!date.includes("T")) {

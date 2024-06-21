@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 import { Icons } from "./icons";
 import { ModeToggle } from "./ui/mode-toggle";
 
-const posts: { title: string; href: string; description: string }[] = [
+export const posts: { title: string; href: string; description: string }[] = [
   {
     title: "React",
     href: "/blog/react",

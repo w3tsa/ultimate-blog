@@ -24,7 +24,7 @@ export default function Page({
     <>
       <Header>
         <MaxWidthWrapper>
-          <h1 className="title font-semibold text-2xl tracking-tighter mt-4 capitalize">
+          <h1 className="title font-semibold text-2xl tracking-wider mt-4 uppercase">
             {params.category}
           </h1>
         </MaxWidthWrapper>
