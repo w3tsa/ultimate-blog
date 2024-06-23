@@ -11,7 +11,7 @@ export default async function PopularPosts() {
   }
   return (
     <ul className="overflow-auto">
-      {popularPosts.map((post) => (
+      {popularPosts?.map((post) => (
         <Link href={`/blog/${post.category}/${post.slug}`} key={post.title}>
           <li className="flex items-center gap-2 group cursor-pointer py-2">
             <Icons.arrowRight className="h-6 w-6 group-hover:translate-x-1 transition-all" />
