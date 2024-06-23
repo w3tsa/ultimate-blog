@@ -1,14 +1,12 @@
 import fs from "fs";
 import path from "path";
 import { db } from "@/db";
-import { unstable_noStore as noStore } from "next/cache";
 
 export async function updatePageViews(
   postSlug: string,
   title: string,
   category: string
 ) {
-  noStore();
   try {
     const existingPost = await db.post.findUnique({
       where: { slug: postSlug },
@@ -37,7 +35,6 @@ export async function updatePageViews(
 // Get popular posts
 
 export async function getPopularPosts() {
-  noStore();
   try {
     return await db.post.findMany({
       take: 10,
