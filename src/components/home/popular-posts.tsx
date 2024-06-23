@@ -1,14 +1,10 @@
 import { getPopularPosts } from "@/app/blog/utils";
 import { Icons } from "@/components/icons";
-import { db } from "@/db";
 import Link from "next/link";
 // import { popularPosts } from "@/lib/placeholder-data";
 
 export default async function PopularPosts() {
   const popularPosts = await getPopularPosts();
-  if (!popularPosts) {
-    console.error("log...", "posts are not defined");
-  }
   return (
     <ul className="overflow-auto">
       {popularPosts?.map((post) => (
