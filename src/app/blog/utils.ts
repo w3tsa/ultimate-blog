@@ -35,10 +35,14 @@ export async function updatePageViews(
 // Get popular posts
 
 export async function getPopularPosts() {
-  return await db.post.findMany({
-    take: 10,
-    orderBy: [{ view_count: "desc" }],
-  });
+  try {
+    return await db.post.findMany({
+      take: 10,
+      orderBy: [{ view_count: "desc" }],
+    });
+  } catch (error) {
+    console.log("something is up...", error);
+  }
 }
 
 // import Test from "../blog/contents/";

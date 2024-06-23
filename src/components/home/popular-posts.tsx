@@ -6,6 +6,9 @@ import Link from "next/link";
 
 export default async function PopularPosts() {
   const popularPosts = await getPopularPosts();
+  if (!popularPosts) {
+    console.error("log...", "posts are not defined");
+  }
   return (
     <ul className="overflow-auto">
       {popularPosts.map((post) => (
