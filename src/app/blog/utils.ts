@@ -1,6 +1,9 @@
 import fs from "fs";
 import path from "path";
-import { db } from "@/db";
+// import { db } from "@/db";
+import { PrismaClient } from "@prisma/client";
+
+let db = new PrismaClient();
 
 export async function updatePageViews(
   postSlug: string,
