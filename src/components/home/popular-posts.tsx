@@ -1,10 +1,13 @@
-import { getPopularPosts } from "@/app/blog/utils";
 import { Icons } from "@/components/icons";
+import { db } from "@/db";
 import Link from "next/link";
 // import { popularPosts } from "@/lib/placeholder-data";
 
 export default async function PopularPosts() {
-  const popularPosts = await getPopularPosts();
+  const popularPosts = await db.post.findMany({
+    take: 10,
+    orderBy: [{ view_count: "desc" }],
+  });
   return (
     <ul className="overflow-auto">
       {popularPosts.map((post) => (
