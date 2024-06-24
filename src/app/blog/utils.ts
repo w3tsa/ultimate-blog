@@ -1,9 +1,6 @@
 import fs from "fs";
 import path from "path";
-// import { db } from "@/db";
-import { PrismaClient } from "@prisma/client";
-
-let db = new PrismaClient();
+import { db } from "@/db";
 
 export async function updatePageViews(
   postSlug: string,
@@ -39,12 +36,14 @@ export async function updatePageViews(
 
 export async function getPopularPosts() {
   try {
-    return await db.post.findMany({
+    const data = await db.post.findMany({
       take: 10,
       orderBy: [{ view_count: "desc" }],
     });
+    return data;
   } catch (error) {
-    console.log("something is up...", error);
+    console.error("Database Error...", error);
+    throw new Error("Failed to fetch the popular posts");
   }
 }
 
