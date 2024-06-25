@@ -2,8 +2,9 @@ import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { CustomMDX } from "@/components/mdx";
 import { notFound } from "next/navigation";
-import { formatDate, getBlogPosts, updatePageViews } from "../../utils";
+import { formatDate, getBlogPosts } from "../../utils";
 import Header from "@/components/header";
+import ReportViews from "@/components/reportViews";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -24,10 +25,13 @@ export default function Blog({
     notFound();
   }
 
-  updatePageViews(params.slug, post.metadata.title, post.metadata.category);
-
   return (
     <>
+      <ReportViews
+        slug={post.slug}
+        title={post.metadata.title}
+        category={post.metadata.category}
+      />
       <Header>
         <MaxWidthWrapper>
           <BreadcrumbWithCustomSeparator

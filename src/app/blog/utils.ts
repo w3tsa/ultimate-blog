@@ -2,50 +2,50 @@ import fs from "fs";
 import path from "path";
 import { db } from "@/db";
 
-export async function updatePageViews(
-  postSlug: string,
-  title: string,
-  category: string
-) {
-  try {
-    const existingPost = await db.post.findUnique({
-      where: { slug: postSlug },
-    });
-    if (existingPost) {
-      await db.post.update({
-        where: { slug: postSlug },
-        data: {
-          view_count: { increment: 1 },
-        },
-      });
-    } else {
-      await db.post.create({
-        data: {
-          slug: postSlug,
-          title: title,
-          category: category,
-        },
-      });
-    }
-  } catch (error) {
-    console.error("Error updating page view:", error);
-  }
-}
+// export async function updatePageViews(
+//   postSlug: string,
+//   title: string,
+//   category: string
+// ) {
+//   try {
+//     const existingPost = await db.post.findUnique({
+//       where: { slug: postSlug },
+//     });
+//     if (existingPost) {
+//       await db.post.update({
+//         where: { slug: postSlug },
+//         data: {
+//           view_count: { increment: 1 },
+//         },
+//       });
+//     } else {
+//       await db.post.create({
+//         data: {
+//           slug: postSlug,
+//           title: title,
+//           category: category,
+//         },
+//       });
+//     }
+//   } catch (error) {
+//     console.error("Error updating page view:", error);
+//   }
+// }
 
 // Get popular posts
 
-export async function getPopularPosts() {
-  try {
-    const data = await db.post.findMany({
-      take: 10,
-      orderBy: [{ view_count: "desc" }],
-    });
-    return data;
-  } catch (error) {
-    console.error("Database Error...", error);
-    throw new Error("Failed to fetch the popular posts");
-  }
-}
+// export async function getPopularPosts() {
+//   try {
+//     const data = await db.post.findMany({
+//       take: 10,
+//       orderBy: [{ view_count: "desc" }],
+//     });
+//     return data;
+//   } catch (error) {
+//     console.error("Database Error...", error);
+//     throw new Error("Failed to fetch the popular posts");
+//   }
+// }
 
 // import Test from "../blog/contents/";
 type Metadata = {
