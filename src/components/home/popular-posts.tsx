@@ -1,20 +1,16 @@
 "use client";
 
 import { Icons } from "@/components/icons";
+import { fetchUrl } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-// import { popularPosts } from "@/lib/placeholder-data";
-
-type PopularPostsType = {
-  title?: string;
-}[];
+// import { popularPosts } from "@/lib/placeholder-data";rcel.app/api";
 
 export default function PopularPosts() {
-  const [popularPosts, setPopularPosts] = useState<PopularPostsType>([]);
-
+  const [popularPosts, setPopularPosts] = useState<{ title: string }[]>([]);
   useEffect(() => {
     async function fetchData() {
-      const data = await fetch("https://ultimate-blog-cyan.vercel.app/api");
+      const data = await fetch(fetchUrl);
       const json = await data.json();
       setPopularPosts(json);
     }

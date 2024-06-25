@@ -1,5 +1,6 @@
 "use client";
 
+import { fetchUrl } from "@/lib/utils";
 import { useEffect } from "react";
 
 export default function ReportViews({
@@ -14,7 +15,7 @@ export default function ReportViews({
   useEffect(() => {
     const postData = async () => {
       try {
-        await fetch("https://ultimate-blog-cyan.vercel.app/api", {
+        await fetch(fetchUrl, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
