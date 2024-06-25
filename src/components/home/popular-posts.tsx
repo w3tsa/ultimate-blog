@@ -14,7 +14,7 @@ export default function PopularPosts() {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await fetch("http://localhost:3000/api");
+      const data = await fetch("https://ultimate-blog-cyan.vercel.app/api");
       const json = await data.json();
       setPopularPosts(json);
     }

@@ -14,7 +14,7 @@ export default function ReportViews({
   useEffect(() => {
     const postData = async () => {
       try {
-        await fetch("http://localhost:3000/api", {
+        await fetch("https://ultimate-blog-cyan.vercel.app/api", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
