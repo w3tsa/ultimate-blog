@@ -207,3 +207,8 @@ table {
 .title {
   text-wrap: balance;
 }
+
+.blockquote > #note::before {
+  content: "#";
+  padding: 5px;
+}

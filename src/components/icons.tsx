@@ -25,6 +25,7 @@ import {
   X,
   Volume2,
   Rss,
+  NotepadText,
   type Icon as LucideIcon,
 } from "lucide-react";
 
@@ -73,4 +74,5 @@ export const Icons = {
   check: Check,
   sound: Volume2,
   rss: Rss,
+  notepadText: NotepadText,
 };

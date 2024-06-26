@@ -86,6 +86,15 @@ function createHeading(level: number) {
   return Heading;
 }
 
+function Blockquote(props: any) {
+  return (
+    <blockquote
+      className="bg-green-50 dark:bg-green-600 p-4 rounded-md blockquote"
+      {...props}
+    />
+  );
+}
+
 let components = {
   h1: createHeading(1),
   h2: createHeading(2),
@@ -96,6 +105,7 @@ let components = {
   Image: RoundedImage,
   a: CustomLink,
   code: Code,
+  blockquote: Blockquote,
   Table,
 };
 
