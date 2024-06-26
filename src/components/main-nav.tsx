@@ -46,7 +46,7 @@ export const posts: { title: string; href: string; description: string }[] = [
   },
   {
     title: "Career",
-    href: "/articles/career",
+    href: "/blog/career",
     description:
       "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
