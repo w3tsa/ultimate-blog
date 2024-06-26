@@ -1,10 +1,8 @@
+import Footer from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
 import "../styles/globals.css";
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import { MainNav } from "@/components/main-nav";
-import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 

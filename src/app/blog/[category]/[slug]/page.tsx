@@ -1,10 +1,10 @@
 import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import Header from "@/components/header";
 import { CustomMDX } from "@/components/mdx";
+import ReportViews from "@/components/reportViews";
 import { notFound } from "next/navigation";
 import { formatDate, getBlogPosts } from "../../utils";
-import Header from "@/components/header";
-import ReportViews from "@/components/reportViews";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();

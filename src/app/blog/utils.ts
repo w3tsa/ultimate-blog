@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { db } from "@/db";
-
+import matter from "gray-matter";
 // export async function updatePageViews(
 //   postSlug: string,
 //   title: string,
@@ -80,13 +79,14 @@ function getMDXFiles(dir: string) {
 
 function readMDXFile(filePath: fs.PathOrFileDescriptor) {
   let rawContent = fs.readFileSync(filePath, "utf-8");
-  return parseFrontmatter(rawContent);
+  return matter(rawContent);
+  // return parseFrontmatter(rawContent);
 }
 
 function getMDXData(dir: string) {
   let mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
-    let { metadata, content } = readMDXFile(path.join(dir, file));
+    let { data: metadata, content } = readMDXFile(path.join(dir, file));
     let slug = path.basename(file, path.extname(file));
 
     return {

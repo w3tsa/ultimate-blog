@@ -4,7 +4,7 @@ export async function GET(request: Request) {
   try {
     const data = await db.post.findMany({
       take: 10,
-      select: { title: true },
+      select: { title: true, category: true, slug: true },
       orderBy: [{ view_count: "desc" }],
     });
     return Response.json(data);
