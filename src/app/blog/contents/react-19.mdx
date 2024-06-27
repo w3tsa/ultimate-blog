@@ -7,7 +7,7 @@ category: "react"
 
 In our React 19 RC Upgrade Guide, we shared step-by-step instructions for upgrading your app to React 19. In this post, we’ll give an overview of the new features in React 19, and how you can adopt them.
 
-## What’s new in React 19
+## What&#39;s new in React 19
 
 ### Actions
 
@@ -85,7 +85,7 @@ The async transition will immediately set the `isPending` state to true, make th
 >
 > By convention, functions that use async transitions are called “Actions”. Actions
 > automatically manage submitting data for you:
-
+>
 > - Pending state: Actions provide a pending state that starts at the beginning of a request and automatically resets when the final state update is committed.
 > - Optimistic updates: Actions support the new `useOptimistic` hook so you can show users instant feedback while the requests are submitting.
 > - Error handling: Actions provide error handling so you can display Error Boundaries when a request fails, and revert optimistic updates to their original value automatically.
@@ -150,4 +150,4 @@ const [error, submitAction, isPending] = useActionState(
 > ### Note
 >
 > `React.useActionState` was previously called `ReactDOM.useFormState` in the Canary
-> releases, but we’ve renamed it and deprecated `useFormState`.{" "}
+> releases, but we&#39;ve renamed it and deprecated `useFormState`.{" "}

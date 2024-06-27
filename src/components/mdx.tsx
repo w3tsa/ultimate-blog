@@ -89,7 +89,7 @@ function createHeading(level: number) {
 function Blockquote(props: any) {
   return (
     <blockquote
-      className="bg-green-50 dark:bg-green-600 p-4 rounded-md blockquote"
+      className="bg-blue-200 dark:bg-blue-950 dark:bg-opacity-30 bg-opacity-30 p-4 rounded-md blockquote"
       {...props}
     />
   );
