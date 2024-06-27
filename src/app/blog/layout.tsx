@@ -4,9 +4,11 @@ import { MainNav } from "@/components/main-nav";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <MaxWidthWrapper className="bg-gray-100 dark:bg-gray-800">
-        <MainNav />
-      </MaxWidthWrapper>
+      <div className="bg-gray-100 dark:bg-gray-800">
+        <MaxWidthWrapper>
+          <MainNav />
+        </MaxWidthWrapper>
+      </div>
       {children}
     </>
   );
