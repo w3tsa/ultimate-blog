@@ -12,6 +12,14 @@ export async function generateStaticParams() {
   }));
 }
 
+export function generateMetadata({ params }: { params: { category: string } }) {
+  let { category } = params;
+  return {
+    title: category.toLocaleUpperCase(),
+    description: "A beginner's to Advanced guide to React blog posts",
+  };
+}
+
 export default function Page({
   params,
 }: {
