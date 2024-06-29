@@ -90,7 +90,11 @@ export default function Footer() {
               Subscribe to our newsletter to stay up-to-date with the latest
               news and updates.
             </p>
-            <form action={dispatch} className="flex flex-col">
+            <form
+              action={dispatch}
+              autoComplete="false"
+              className="flex flex-col"
+            >
               <div className="flex space-x-2">
                 <Input
                   type="email"
