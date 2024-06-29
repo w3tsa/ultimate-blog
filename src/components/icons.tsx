@@ -23,7 +23,6 @@ import {
   Twitter,
   User,
   X,
-  Volume2,
   Rss,
   NotepadText,
   type Icon as LucideIcon,
@@ -72,7 +71,6 @@ export const Icons = {
   ),
   twitter: Twitter,
   check: Check,
-  sound: Volume2,
   rss: Rss,
   notepadText: NotepadText,
 };
