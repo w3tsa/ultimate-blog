@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Icons } from "./icons";
 import { createSubscriber } from "@/lib/action";
 import { useFormState } from "react-dom";
-import { posts } from "./main-nav";
+import { posts } from "@/lib/constants";
 
 export default function Footer() {
   const initialState = { message: "", errors: {} };
