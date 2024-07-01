@@ -15,7 +15,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Icons } from "./icons";
 import { ModeToggle } from "./ui/mode-toggle";
-import { posts } from "@/lib/constants";
+import { POSTS } from "@/lib/constants";
 
 export function MainNav({ className }: { className?: string }) {
   return (
@@ -37,7 +37,7 @@ export function MainNav({ className }: { className?: string }) {
             <NavigationMenuTrigger>Posts</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {posts.map((post) => (
+                {POSTS.map((post) => (
                   <ListItem
                     key={post.title}
                     title={post.title}

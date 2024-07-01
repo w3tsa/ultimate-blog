@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Icons } from "./icons";
 import { createSubscriber } from "@/lib/action";
 import { useFormState } from "react-dom";
-import { posts } from "@/lib/constants";
+import { POSTS } from "@/lib/constants";
 
 export default function Footer() {
   const initialState = { message: "", errors: {} };
@@ -42,7 +42,7 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-md font-semibold">Blog</h3>
             <ul className="space-y-2 text-sm">
-              {posts.map((post) => (
+              {POSTS.map((post) => (
                 <li key={post.title}>
                   <Link
                     href={post.href}
