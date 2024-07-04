@@ -3,6 +3,7 @@ import { getBlogPosts } from "../utils";
 import CardCategory from "@/components/category/page";
 import Link from "next/link";
 import Header from "@/components/header";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -28,12 +29,17 @@ export default function Page({
   let posts = getBlogPosts().filter(
     (post) => post.metadata.category === params.category
   );
+
+  if (!posts.length) {
+    notFound();
+  }
+
   return (
     <>
       <Header>
         <MaxWidthWrapper>
           <h1 className="title font-semibold text-2xl tracking-wider mt-4 uppercase">
-            {params.category}
+            {posts[0]?.metadata.category}
           </h1>
         </MaxWidthWrapper>
       </Header>
